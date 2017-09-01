@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="css/book_index.css" rel="stylesheet" type="text/css" />
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <link href="css/register.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="js/main/book_index.js"></script>
+    <script type="text/javascript" src="js/main/login.js"></script>
+    <script type="text/javascript" src="js/main/register.js"></script>
+</head>
+
+<body>
+<div>
+    <div class="f">
+        <div class="f-t">手机号登录<span style="float:right;position:relative;bottom:5px;right:5px;"><a id="return" href="#"><img src="image/return.png"></a> </span></div>
+        <div>
+            <form method="post" action="" onsubmit="return checkLogin()">
+                <table class="f-f" >
+                    <tr >
+                        <td ><input id="login_mess" readonly="readonly" style="width:300px;color:red;border:none;font-size:12px;"> </td>
+                    </tr>
+                    <tr height="35">
+                        <td ><input type="text" name="login_Name" value="手机号码登录" class="admin" id="login_regs" onblur="validate_login()"  style="text-indent:1em;width:220px; height:32px;border:1px solid #e2e2e2;color:#595959;font-size:12px;"/></td>
+                    </tr>
+                    <tr height="45">
+                        <td height="35">
+                            <input type="text" value="登录密码"  id="login_showPwd" style="text-indent:1em;width:220px; height:32px;border:1px solid #e2e2e2;color:#595959;font-size:12px;"/>
+                            <input type="password" value="" onblur="validate_loginPwd()" id="login_password" name="login_Pwd" style="text-indent:1em;display: none;width:220px; height:32px;border:1px solid #e2e2e2;"/>
+                        </td>
+                    </tr>
+                    <tr height="30">
+                        <td><input type="checkbox" name="box" style="border:1px solid #e2e2e2;"><span style=" position: relative;bottom:2px;left:3px;">两周内自动登陆</span></td>
+                    </tr>
+                    <tr height="35">
+                        <td ><input id="btn_login" type="submit" name="Submit" value="登 录" style="cursor: pointer;width:220px; height:30px;background:#5ca6e7;border:1px solid #6c92e7;color:#f0f0f0;"></td>
+                    </tr>
+                    <tr>
+                        <td><span style=" position: relative;top:4px;left:110px;"><a id="log" href="#">没有账号?免费注册</a></span></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="r">
+    <div class="r-t">手机号注册<span style="float:right;position:relative;bottom:5px;right:5px;"><a id="ret" href="javascript:void(0)"><img src="image/return.png"></a></span></div>
+    <div>
+        <form method="post" action=" " onsubmit="return checkRegister()">
+            <table class="r-f" >
+                <tr >
+                    <td ><input id="register_mess" readonly="readonly" style="width:300px;color:red;border:none;font-size:12px;"> </td>
+                </tr>
+                <tr height="45">
+                    <td ><input type="text" name="reg_Name" value="手机号码注册"  class="reg" id="register_regs" onblur="validate_register()" style="text-indent:1em;width:220px; height:32px;border:1px solid #e2e2e2;color:#595959;font-size:12px;"/></td>
+                <tr height="45">
+                    <td height="35">
+                        <input type="text" value="请输入您的密码"  id="showPwd" style="text-indent:1em;width:220px; height:32px;border:1px solid #e2e2e2;color:#595959;font-size:12px;"/>
+                        <input type="password"  id="reg_pwd" onblur="validate_registerPwd()" name="reg_Pwd" style="text-indent:1em;display: none;width:220px; height:32px;border:1px solid #e2e2e2;"/>
+                    </td>
+                </tr>
+                <tr height="35">
+                    <td ><input id="btn_register" type="submit" name="Submit"  value="注册" style="cursor: pointer;width:220px; height:30px;background:#5ca6e7;border:1px solid #6c92e7;color:#f0f0f0;"></td>
+                </tr>
+                <tr height="30">
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span style=" position: relative;"><a id="register" href="javascript:void(0)">&lt;&lt;返回登录</a></span></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class="parent">
+    <p><a href="#">从电脑上导入书籍</a></p>
+    <ul>
+        <li id="parent"><a href="#">登录</a>
+            <div class="parent_ul">
+                <ul >
+                    <li><a href="#">新浪微博登录</a></li>
+                    <li><a href="#">腾讯微博登录</a></li>
+                    <li><a href="#" id="login">手机号登录</a></li>
+                    <li><a href="#">微信登录</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>&nbsp;&nbsp;&nbsp;<span>|&nbsp;&nbsp;&nbsp;</span><a href="#" id="reg_acount">注册</a>&nbsp;&nbsp;&nbsp;<span>|&nbsp;&nbsp;&nbsp;</span></li>
+        <li><a href="#">作者中心</a>&nbsp;&nbsp;&nbsp;&nbsp;<span>|&nbsp;&nbsp;&nbsp;</span></li>
+        <li><a href="#">充值</a></li>
+    </ul>
+</div>
+<div class="top">
+    <div class="topleft">
+        <div class="left"><img src="image/Logo.jpg" width="110" height="100"/>
+            <div><p><span>集</span> 小 说</p></div>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li><input type="text"  class="text" size=50 value="请输入关键字"/><a href="bookSearch.html"><img src="image/search.png" align="center"  width="40" height="35"></a></li>
+                <!--<input type="image"  src="image/search.png" align="center" width="40" height="35"/>-->
+                <li><a href="bookDetails.html">无上战帝</a><a href="#"> 医道官途 </a><a href="#">全职高手</a><a href="#"> 遮天</a><a href="#"> 凡人修仙传</a><a href="#"> 异世邪君</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="topright">
+        <ul>
+            <li><a href="#"><img src="image/reserve.png" width="30" height="30" align="center">我的订阅</a> </li>
+            <li><a href="bookCollection.html"><img src="image/list.png" width="30" height="33" align="center">我的书架</a> </li>
+        </ul>
+    </div>
+</div>
+<div class="header1">
+    <ul>
+        <li><a href="book_index.html" target="_top">首页</a></li>
+        <li><a href="book_list.html" target="_top">排行榜</a></li>
+        <li><a href="book_boy.html" target="_top">男生频道</a></li>
+        <li><a href="book_girl.html" target="_top">女生频道</a></li>
+        <li><a href="book_personal.html" target="_top">个性频道</a></li>
+        <li><a href="#">免费</a></li>
+        <li><a href="#">专题</a></li>
+        <li><a href="#">客户端</a></li>
+    </ul>
+</div>
+<!--<div class="header2">-->
+    <!--<ul>-->
+        <!--<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">全部</a>&nbsp;&nbsp;&nbsp;<spqn>|</spqn> </li>-->
+        <!--<li><a href="#">主编推荐</a>&nbsp;&nbsp;<spqn>|</spqn>&nbsp;</li>-->
+        <!--<li><a href="#">精品图书</a>&nbsp;&nbsp;&nbsp;<spqn>|</spqn>&nbsp;</li>-->
+        <!--<li><a href="#">男生小说</a>&nbsp;&nbsp;&nbsp;<spqn>|</spqn>&nbsp;</li>-->
+        <!--<li><a href="#">女生小说</a>&nbsp;&nbsp;&nbsp;<spqn>|</spqn>&nbsp;</li>-->
+        <!--<li><a href="#">短篇美文</a>&nbsp;&nbsp;&nbsp;<spqn>|</spqn></li>-->
+        <!--<li><a href="#">热门文章</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+ <div class="body">
+  <div class="bodybottom">
+     <div class="book_index">
+         <dl>
+             <dt>图书</dt>
+             <dd><a href="bookList.html">流行小说</a>&nbsp;|&nbsp;<a href="#">社科历史</a>&nbsp;|&nbsp;<a href="#">杂志期刊</a><br/>
+                 <a href="#">经济管理</a>&nbsp;|&nbsp;<a href="#">文学艺术</a>&nbsp;|&nbsp;<a href="#">生活保健</a>
+             </dd>
+         </dl>
+     </div>
+     <div class="book_index">
+         <dl>
+             <dt>男生小说</dt>
+             <dd><a href="#">都市生活</a>&nbsp;|&nbsp;<a href="#">职场商战</a>&nbsp;|&nbsp;<a href="#">玄幻仙侠</a><br/>
+                 <a href="#">悬疑探险</a>&nbsp;|&nbsp;<a href="#">灵异恐怖</a>&nbsp;|&nbsp;<a href="#">短篇小说</a>
+             </dd>
+         </dl>
+     </div>
+     <div class="book_index">
+         <dl>
+             <dt>女生小说</dt>
+             <dd><a href="#">浪漫青春</a>&nbsp;|&nbsp;<a href="#">婚恋情感</a>&nbsp;|&nbsp;<a href="#">古风古韵</a><br/>
+                 <a href="#">穿越架空</a>&nbsp;|&nbsp;<a href="#">宫斗宅斗</a>&nbsp;|&nbsp;<a href="#">种田重生</a>
+             </dd>
+         </dl>
+     </div>
+     <div class="book_index">
+         <dl>
+             <dt>订阅</dt>
+             <dd><a href="#">创意频道</a>&nbsp;|&nbsp;<a href="#">美食频道</a>&nbsp;|&nbsp;<a href="#">公开课堂</a><br/>
+                 <a href="#">视觉频道</a>&nbsp;|&nbsp;<a href="#">外文资讯</a>&nbsp;|&nbsp;<a href="#">自媒体人</a>
+             </dd>
+         </dl>
+     </div>
+ </div>
+     <div class="img_box">
+        <div class="big"></div>
+         <div class="box_left"><img src="image/left.png" width="40" height="50"/> </div>
+         <div class="box_right"><img src="image/right.png" width="40" height="50"/></div>
+         <ul class="box">
+             <li><a href="#"><img src="image/1.jpg" width="735" height="415" /></a></li>
+             <li><a href="#"><img src="image/2.jpg" width="735" height="415" /></a></li>
+             <li><a href="#"><img src="image/3.jpg" width="735" height="415" /></a></li>
+             <li><a href="#"><img src="image/4.jpg" width="735" height="415" /></a></li>
+         </ul>
+        <ul class="box_text">
+            <li><a href="#"><img src="image/1.jpg" width="150" height="100" /></a></li>
+            <li><a href="#"><img src="image/2.jpg" width="150" height="100" /></a></li>
+            <li><a href="#"><img src="image/3.jpg" width="150" height="100" /></a></li>
+            <li><a href="#"><img src="image/4.jpg" width="150" height="100" /></a></li>
+        </ul>
+     </div>
+  </div>
+<div class="center1">
+    <dl>
+        <dt>主编推荐</dt>
+        <dd><a href="#" >图书</a>&nbsp;&nbsp;|</dd>
+        <dd><a href="#" >小说</a>&nbsp;&nbsp;|</dd>
+        <dd><a href="#" >订阅</a></dd>
+    </dl>
+    <div class="model">
+        <ul>
+            <li>
+                <div class="model_left"><img src="image/5.jpg" width="110" height="150"></div>
+                <div class="model_right">
+                    <p><a href="#">法医秦明系列（全五册)</a></p>
+                    <dl>
+                        <dt>秦明<br/>张若昀、焦俊艳主演热播网剧原著！省厅法医亲上阵，还原最真实的案发细节！</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </li>
+            <li>
+                <div class="model_left"><img src="image/6.jpg" width="110" height="150"></div>
+                <div class="model_right">
+                    <p><a href="#">鲁迅全集（无删改，最通俗好读的版）</a></p>
+                    <dl>
+                        <dt>鲁迅<br/>横眉冷对千夫指，俯首甘为孺子牛。这是最真实的鲁迅先生</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </li>
+            <li>
+                <div class="model_left"><img src="image/7.jpg" width="110" height="150"></div>
+                <div class="model_right">
+                    <p><a href="#">在宇宙间不易被风吹散</a></p>
+                    <dl>
+                        <dt>冯唐<br/>冯唐全新作品，用美好的器物消磨必定留不住的时间！</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="center2">
+    <div style="float: left;">
+        <div class="book_boy_top">
+            <dl>
+                <dt>男生小说</dt>
+                <dd><a href="book_boy.html">更多&gt</a></dd>
+            </dl>
+        </div>
+        <div class="book_boy">
+            <div class="book_boy_list">
+                <img src="image/8.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">神医无双</a></p>
+                    <dl>
+                        <dt>天才魔术师<br/><br/>实习医生罗源意外得天医传承，卷入各种争斗，从此开始一段小人物崛起奋斗不息的故事</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="book_boy_list">
+                <img src="image/9.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">山野刁民</a></p>
+                    <dl>
+                        <dt>老非<br/><br/>一个狂妄的小子，竟然从一个村支书开始，一步步走上了辉煌……</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="book_boy_list">
+                <img src="image/10.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">神医无双</a></p>
+                    <dl>
+                        <dt>大飞鱼<br/><br/>且看我无上战帝，血战八方，逍遥四海！</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="book_boy_list">
+                <img src="image/11.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">神医无双</a></p>
+                    <dl>
+                        <dt>阿谷<br/><br/>本以为能够享受美好的生活，殊不知他已经卷进了可怕的阴谋当中...</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div style="float:right;">
+       <div class="book_list_top">
+           <p>男生小说畅销榜</p>
+       </div>
+       <div id="book_boy" class="book_list">
+           <dl>
+               <dt><span>01</span><a href="#">天才医仙</a></dt>
+               <dd><h1>01</h1><img src="image/01.jpg " width="75" height="95"><p><a href="#">天才医仙</a><br/><span>一桶浆糊</span></p></dd>
+           </dl>
+           <dl>
+               <dt><span>02</span><a href="#">江山志远：杨志远飙升记</a></dt>
+               <dd><h1>02</h1><img src="image/02.jpg " width="75" height="95"><p><a href="#">江山志远：杨志远飙升记</a><br/><span>罗为辉</span></p></dd>
+           </dl>
+           <dl>
+               <dt><span>03</span><a href="#">我当摸金校尉的那些年</a></dt>
+               <dd><h1>03</h1><img src="image/03.jpg " width="75" height="95"><p><a href="#">我当摸金校尉的那些年</a><br/><span>道门老九</span></p></dd>
+           </dl>
+           <dl>
+               <dt><span>04</span><a href="#">少年拳圣</a></dt>
+               <dd><h1>04</h1><img src="image/04.jpg " width="75" height="95"><p><a href="#">少年拳圣</a><br/><span>张君宝</span></p></dd>
+           </dl>
+           <dl>
+               <dt><span>05</span><a href="#">官梯</a></dt>
+               <dd><h1>05</h1><img src="image/05.jpg " width="75" height="95"><p><a href="#">官梯（完整版)</a><br/><span>钓人的鱼</span></p></dd>
+           </dl>
+           <dl>
+               <dt><span>06</span><a href="#">一号兵王</a></dt>
+               <dd><h1>06</h1><img src="image/06.jpg " width="75" height="95"><p><a href="#">一号兵王</a><br/><span>银宝</span></p></dd>
+           </dl>
+           <ul>
+               <li>&nbsp;→&nbsp;&nbsp;<a href="book_boy.html">查看更多</a></li>
+           </ul>
+       </div>
+   </div>
+</div>
+<div class="center2">
+    <div style="float: left;">
+        <div class="book_boy_top">
+            <dl>
+                <dt>女生小说</dt>
+                <dd><a href="book_girl.html">更多&gt</a></dd>
+            </dl>
+        </div>
+        <div class="book_boy">
+            <div class="book_boy_list">
+                <img src="image/12.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">绝宠医妃：皇叔，请自重</a></p>
+                    <dl>
+                        <dt>听见<br/><br/>听着各种流言，白芷菱淡定的数着银票看尽各路俊男美女，却在一美人身上栽了。</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="book_boy_list">
+                <img src="image/13.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">顾少的天价前妻</a></p>
+                    <dl>
+                        <dt>安晓于<br/><br/>她以这从此可以摆脱顾炎初这三个字，却有个小奶包在她耳边天天唱没妈的孩子像根草…</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="book_boy_list">
+                <img src="image/14.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">乱世嫡杀</a></p>
+                    <dl>
+                        <dt>诸葛龙虾<br/><br/>摒弃了前世性格中的高傲与疏离，她手段凌厉，且看重生嫡女，如何笑倾天下！</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="book_boy_list">
+                <img src="image/15.jpg" width="120" height="160">
+                <div class="boy_list">
+                    <p><a href="#">日久深情：总裁大人，轻点爱</a></p>
+                    <dl>
+                        <dt>月光旖旎<br/><br/>美人送怀，为夫哪有拒绝的道理，简直暴殄天物。</dt>
+                        <dd><a href="#">立即阅读&gt</a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="float:right;">
+        <div class="book_list_top">
+            <p>女生小说畅销榜</p>
+        </div>
+        <div id="book_girl" class="book_list">
+            <dl>
+                <dt><span>01</span><a href="#">药孽：美人如毒</a></dt>
+                <dd><h1>01</h1><img src="image/07.jpg " width="75" height="95"><p><a href="#">药孽：美人如毒</a><br/><span>冬雪晚晴</span></p></dd>
+            </dl>
+            <dl>
+                <dt><span>02</span><a href="#">婚然天成：老公么么哒</a></dt>
+                <dd><h1>02</h1><img src="image/08.jpg " width="75" height="95"><p><a href="#">婚然天成：老公么么哒</a><br/><span>司舞舞</span></p></dd>
+            </dl>
+            <dl>
+                <dt><span>03</span><a href="#">闪婚独宠</a></dt>
+                <dd><h1>03</h1><img src="image/09.jpg " width="75" height="95"><p><a href="#">闪婚独宠</a><br/><span>道门老九</span></p></dd>
+            </dl>
+            <dl>
+                <dt><span>04</span><a href="#">日久生情：爱你，一错到底</a></dt>
+                <dd><h1>04</h1><img src="image/10.jpg " width="75" height="95"><p><a href="#">日久生情：爱你，一错到底</a><br/><span>鄀宁宁</span></p></dd>
+            </dl>
+            <dl>
+                <dt><span>05</span><a href="#">绘天神凰</a></dt>
+                <dd><h1>05</h1><img src="image/11.jpg " width="75" height="95"><p><a href="#">绘天神凰</a><br/><span>峨嵋</span></p></dd>
+            </dl>
+            <dl>
+                <dt><span>06</span><a href="#">诱妻入怀：前夫，请温柔</a></dt>
+                <dd><h1>06</h1><img src="image/12.jpg " width="75" height="95"><p><a href="#">一号兵王</a><br/><span>汤圆儿</span></p></dd>
+            </dl>
+            <ul>
+                <li>&nbsp;→&nbsp;&nbsp;<a href="book_girl.html">查看更多</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+    <ul>
+        <li> <a href="#">关于看书网</a>&nbsp;|<a href="#">联系我们</a>&nbsp;|<a href="#">诚聘英才</a>&nbsp;|<a href="#">商务合作</a>&nbsp;|<a href="#">友情链接</a></li>
+        <li>本站所收录所有玄幻小都市小说及其它各类小说作品、免费小说阅读网、小说评论均属其人行为，不代表本站立场
+            。</li>
+        <li>Copyright (C) 2004-2025 看书网 All Rights Reserved 成都古羌科技有限公司 版权所有</li>
+        <li>蜀ICP备14011046号 电信增值业务许可证：川B2-20100073</li>
+        <li>网络文化经营许可证：川网文[2011]0207-6号</li>
+    </ul>
+</div>
+</body>
+</html>
